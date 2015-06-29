@@ -1,12 +1,12 @@
 import React from 'react';
-import {Keen} from 'keen-js';
+//import {Keen} from 'keen-js';
 import {PROJECT_ID, READ_KEY} from './CONSTANTS';
 
 class MyApp extends React.Component {
     constructor(props) {
         super(props);
         this.call_keen = this.call_keen.bind(this);
-        this.state = {ht:'there'};
+        this.state = {count:1};
     }
 
     call_keen(){
@@ -14,21 +14,19 @@ class MyApp extends React.Component {
         console.log(PROJECT_ID);
         console.log(READ_KEY);
 
-        var client = new Keen({
-            projectId: PROJECT_ID, // String (required always)
-            readKey: READ_KEY      // String (required for querying data)
-
-        });
-
-        console.log(client);
+        //var client = new Keen({
+        //    projectId: PROJECT_ID, // String (required always)
+        //    readKey: READ_KEY      // String (required for querying data)
+        //});
+        //console.log(client);
 
 
-        // The code below works...
-        //setTimeout(function(){
-        //        console.log("simulated done");
-        //        this.setState({hoho:"yoyo"});
-        //    }.bind(this)
-        //, 500);
+         //The code below works...
+        setTimeout(function(){
+                console.log("simulated done");
+                this.setState({count: this.state.count+1});
+            }.bind(this)
+        , 1000);
     }
 
     render(){

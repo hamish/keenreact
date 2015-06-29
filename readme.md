@@ -1,4 +1,11 @@
+# keenreact
+
+npm install
+
+webpack --watch -d
+
+http-server website/
+
+point web browser to locahost:8080/
 
 
-export const PROJECT_ID = 'abc';
-export const READ_KEY = 'def';
