@@ -1,4 +1,6 @@
 import React from 'react';
+import {Keen} from 'keen-js';
+import {PROJECT_ID, READ_KEY} from './CONSTANTS';
 
 class MyApp extends React.Component {
     constructor(props) {
@@ -9,11 +11,24 @@ class MyApp extends React.Component {
 
     call_keen(){
         console.log("calling keen");
-        setTimeout(function(){
-                console.log("simulated done");
-                this.setState({hoho:"yoyo"});
-            }.bind(this)
-        , 500);
+        console.log(PROJECT_ID);
+        console.log(READ_KEY);
+
+        var client = new Keen({
+            projectId: PROJECT_ID, // String (required always)
+            readKey: READ_KEY      // String (required for querying data)
+
+        });
+
+        console.log(client);
+
+
+        // The code below works...
+        //setTimeout(function(){
+        //        console.log("simulated done");
+        //        this.setState({hoho:"yoyo"});
+        //    }.bind(this)
+        //, 500);
     }
 
     render(){
