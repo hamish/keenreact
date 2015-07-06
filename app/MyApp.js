@@ -1,5 +1,7 @@
 import React from 'react';
-//import {Keen} from 'keen-js';
+console.log('1');
+import * as Keen from 'keen-js';
+console.log('2');
 import {PROJECT_ID, READ_KEY} from './CONSTANTS';
 
 class MyApp extends React.Component {
@@ -14,7 +16,7 @@ class MyApp extends React.Component {
         console.log(PROJECT_ID);
         console.log(READ_KEY);
 
-        //var client = new Keen({
+        //var client = new Keen.default({
         //    projectId: PROJECT_ID, // String (required always)
         //    readKey: READ_KEY      // String (required for querying data)
         //});
@@ -22,11 +24,11 @@ class MyApp extends React.Component {
 
 
          //The code below works...
-        setTimeout(function(){
-                console.log("simulated done");
-                this.setState({count: this.state.count+1});
-            }.bind(this)
-        , 1000);
+        //setTimeout(function(){
+        //        console.log("simulated done");
+        //        this.setState({count: this.state.count+1});
+        //    }.bind(this)
+        //, 1000);
     }
 
     render(){
