@@ -1,7 +1,5 @@
 import React from 'react';
-console.log('1');
-import * as Keen from 'keen-js';
-console.log('2');
+import Keen from 'keen-js';
 import {PROJECT_ID, READ_KEY} from './CONSTANTS';
 
 class MyApp extends React.Component {
@@ -16,11 +14,11 @@ class MyApp extends React.Component {
         console.log(PROJECT_ID);
         console.log(READ_KEY);
 
-        //var client = new Keen.default({
-        //    projectId: PROJECT_ID, // String (required always)
-        //    readKey: READ_KEY      // String (required for querying data)
-        //});
-        //console.log(client);
+        var client = new Keen({
+            projectId: PROJECT_ID, // String (required always)
+            readKey: READ_KEY      // String (required for querying data)
+        });
+        console.log(client);
 
 
          //The code below works...

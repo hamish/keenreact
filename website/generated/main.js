@@ -18682,8 +18682,6 @@ webpackJsonp([0,1],[
 	
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
@@ -18696,13 +18694,9 @@ webpackJsonp([0,1],[
 	
 	var _keenJs = __webpack_require__(/*! keen-js */ 197);
 	
-	var Keen = _interopRequireWildcard(_keenJs);
+	var _keenJs2 = _interopRequireDefault(_keenJs);
 	
 	var _CONSTANTS = __webpack_require__(/*! ./CONSTANTS */ 289);
-	
-	console.log('1');
-	
-	console.log('2');
 	
 	var MyApp = (function (_React$Component) {
 	    function MyApp(props) {
@@ -18720,13 +18714,13 @@ webpackJsonp([0,1],[
 	        value: function call_keen() {
 	            console.log('calling keen');
 	            console.log(_CONSTANTS.PROJECT_ID);
-	            console.log(_CONSTANTS.READ_KEY);
+	            console.log(_CONSTANTS.READ_KEY // String (required for querying data)
+	            );
 	
-	            //var client = new Keen.default({
-	            //    projectId: PROJECT_ID, // String (required always)
-	            //    readKey: READ_KEY      // String (required for querying data)
-	            //});
-	            //console.log(client);
+	            var client = new _keenJs2['default']({
+	                projectId: _CONSTANTS.PROJECT_ID, // String (required always)
+	                readKey: _CONSTANTS.READ_KEY });
+	            console.log(client);
 	
 	            //The code below works...
 	            //setTimeout(function(){
