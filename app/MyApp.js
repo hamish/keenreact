@@ -18,7 +18,27 @@ class MyApp extends React.Component {
             projectId: PROJECT_ID, // String (required always)
             readKey: READ_KEY      // String (required for querying data)
         });
-        console.log(client);
+
+        Keen.ready(()=>{
+              var count = new Keen.Query("count", {
+                eventCollection: "Dashboard",
+                groupBy: "kindergarten_id",
+                timeframe: "this_7_days"
+              });
+              client.run(count, (err, res) =>{
+                    if (err) {
+                        console.log("err");
+                        console.log(err);
+                    }
+                    else {
+                      // do something with res.result
+                      console.log("queried...");
+                      console.log(res.result);
+                      this.setState({result: res.result})
+                    }                
+              });
+        });
+
 
 
          //The code below works...
